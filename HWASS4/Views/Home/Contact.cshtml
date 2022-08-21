@@ -1,0 +1,69 @@
+﻿@using HWASS4.Models
+
+@{
+    ViewBag.Title = "Contact";
+}
+
+
+<div class="container-fluid bg-info">
+    <h2 class="text-center">CONTACT</h2>
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="lead text-success">We will get back to you as soon as possible!</p>
+            <p><span class="glyphicon glyphicon-map-marker"></span>Weltevrenden 118,Brakpan</p>
+            <p><span class="glyphicon glyphicon-phone"></span>0112589658</p>
+            <p><span class="glyphicon glyphicon-envelope"></span>Carol@siyabongaafrica.org.za</p>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success" type="submit">Send</button>
+        </div>
+    </div>
+
+    @* Table where the committee Class is being displayed*@
+    <div class="row">
+        <div class="col-lg">
+        <h2>Committee</h2>
+        <table class="table-bordered table-hover table-responsive">
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Email</th>
+                <th>Availability Weekly</th>
+            </tr>
+            @foreach (var committee in Model)
+            {
+                <tr>
+                    <td>@committee.Name</td>
+                    <td>@committee.Position</td>
+                    <td>@committee.Email</td>
+                    <td>@committee.AvailabilityWeekly</td>
+                </tr>
+            }
+        </table>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th {
+            height: 60px;
+        }
+    </style>
+
+     
+   
+
+
+

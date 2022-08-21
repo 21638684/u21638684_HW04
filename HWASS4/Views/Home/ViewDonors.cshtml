@@ -1,0 +1,50 @@
+﻿@model List<HWASS4.Models.Donor_TB>
+@{
+    ViewBag.Title = "ViewDonors";
+}
+
+<h2>Our Donors </h2>
+
+@*button to move to a donor view*@
+<a href="@Url.Action("Donor","Home")" class="btn btn-primary ">Return to Donor </a>
+
+@*Table to display the details entered on the a form on Donor page*@
+<table class="table-hover table-bordered table-responsive">
+    <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Amount(R)</th>
+            <th>Comment</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    @foreach (var donor in Model)
+    {
+        <tr>
+            <td>@donor.Name</td>
+            <td>@donor.Surname</td>
+            <td>@donor.Email</td>
+            <td>@donor.Phone</td>
+            <td>@donor.Amount</td>
+            <td>@donor.Comment</td>
+            <td>
+                <a href="@Url.Action("Donor",new {donor.ID,donor.Name,donor.Surname,donor.Email,donor.Phone,donor.Amount,donor.Comment })" class="btn btn-primary">EDIT</a>
+                <a href="@Url.Action("DeleteDonors",new {donor.ID })" class="btn btn-danger">DELETE</a>
+            </td>
+        </tr>
+
+    }
+</table>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th {
+        height: 70px;
+    }
+</style>

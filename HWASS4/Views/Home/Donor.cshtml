@@ -1,0 +1,77 @@
+﻿@model HWASS4.Models.Donor_TB
+
+@{
+    ViewBag.Title = "Donor";
+}
+
+<div><h2 class="text-info text-center">Donate For A Better World!</h2></div>
+@*Form to type in the details *@
+<div class="row">
+    
+    <div class="col">
+
+        <h3>Add Details</h3>
+
+        @using (Html.BeginForm("AddDonor", "Home", FormMethod.Post))
+        {
+            <div class="container">
+                <div class="form-group">
+                    @Html.HiddenFor(x => x.ID)
+                    <label>Name</label>
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Last Name</label>
+                    @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Amount(R)</label>
+                    @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Comment</label>
+                    @Html.TextAreaFor(x => x.Comment, new { @class = "form-control", @rows = "4" })
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">SUBMIT</button>
+                    <button type="reset" class="btn btn-danger">CANCEL</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="col">
+    <img src="~/Pictures/Happy.jpg" />
+
+    <p class="lead">Donate, Together we can make a difference.</p>
+</div>
+
+
+    <style>
+       .row {
+      display: flex;
+    }
+
+    .col {
+      flex: 50%;
+    }
+
+    </style>
+
+
